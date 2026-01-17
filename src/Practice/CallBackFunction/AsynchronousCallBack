@@ -1,0 +1,31 @@
+Asynchronous operations are operations that run in parallel to one another. 
+Unlike synchronous operations illustrated in the previous section, asynchronous tasks are non-blocking.
+ They don’t wait for one another before performing their operations.
+  Let’s update the EventListener interface to illustrate an asynchronous callback function in Java:
+  
+  
+  public class AsynchronousEventConsumer{
+
+    private EventListener listener;
+
+    public AsynchronousEventConsumer(EventListener listener) {
+        this.listener = listener;
+    }
+
+    public void doAsynchronousOperation(){
+        System.out.println("Performing operation in Asynchronous Task");
+
+        new Thread(() -> listener.onTrigger()).start();
+    }
+}
+
+The AsynchronousEventConsumer class above declares a doAsynchronousOperation() method that 
+implicitly invokes the onTrigger() method of the EventListener in a new thread.
+Note that this approach of creating a new Thread for each method call is an anti-pattern and is used here for demonstration purposes. 
+Production-ready code should rely on properly sized and tuned thread pools.
+
+EventListener listener = Mockito.mock(AsynchronousEventListenerImpl.class);
+AsynchronousEventConsumer synchronousEventListenerConsumer = new AsynchronousEventConsumer(listener);
+synchronousEventListenerConsumer.doAsynchronousOperation();
+
+verify(listener, timeout(1000).times(1)).onTrigger();

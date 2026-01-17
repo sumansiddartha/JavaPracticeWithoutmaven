@@ -1,0 +1,14 @@
+-->An iterator is a software design pattern that abstracts the process of scanning 
+through a collection of elements one element at a time.
+
+---->an iterator extends the concept of the position ADT
+---->An iterator encapsulates the concepts of "place" and "next" 
+	in a collection of objects
+	--->hasNext(): Test whether there are elements left in the iterator.
+		next(): Return the next element in the iterator.
+		
+------>In order to provide a unified generic mechanism for 
+	scanning through a data structure, 
+	ADTs storing collections of objects should support the following method:
+	
+	iterator(): Return an iterator of the elements in the collection.

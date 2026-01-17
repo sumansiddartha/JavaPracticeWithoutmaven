@@ -1,0 +1,39 @@
+“provides an --interface--- for creating families of 
+related or dependent objects without specifying their concrete classes”
+
+example of the Abstract Factory design pattern in the JDK is the newInstance() 
+
+Next, we create an abstract class Animal to define the common attributes of our animals: 
+their era, type, and name. It also includes an abstract create() 
+method, which will be implemented by concrete subclasses
+
+
+Concrete Product Classes: LandAnimal and SkyAnimal
+We create two concrete subclasses of Animal: LandAnimal and SkyAnimal. These classes 
+provide specific implementations for creating land and sky animals, respectively.
+
+
+EraAnimalFactory factory interface
+We define an interface, EraAnimalFactory,
+ which declares methods for creating land and sky animals per era. 
+Concrete factory classes will implement this interface to create animals of 
+specific eras.
+
+
+
+Concrete Factory Classes: CenozoicAnimalFactory and MesozoicAnimalFactory
+We create two concrete factory classes, CenozoicAnimalFactory and MesozoicAnimalFactory, 
+which implement the EraAnimalFactory interface. 
+Each factory is responsible for creating animals from a particular era.
+
+
+
+Abstract factory: AnimalAbstractFactory
+AnimalAbstractFactory class is 
+responsible to create animals based on the era and type provided.
+
+
+3. When to Use Abstract Factory Pattern:
+The client is independent of how we create and compose the objects in the system
+The system consists of multiple families of objects, and these families are designed to be used together
+We need a run-time value to construct a particular dependency

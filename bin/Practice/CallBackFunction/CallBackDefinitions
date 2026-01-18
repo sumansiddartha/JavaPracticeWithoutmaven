@@ -1,0 +1,5 @@
+-->CallBack function is a function passed as argument to another function.
+--Executes when function completes or some event happens.
+---useful when working with asynchronous code
+create a callback function in Java by exposing an interface and accepting its implementation as a parameter.
+ Such a callback can be called synchronously or asynchronously.

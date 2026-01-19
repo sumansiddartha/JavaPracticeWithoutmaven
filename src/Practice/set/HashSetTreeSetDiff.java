@@ -14,6 +14,7 @@ public class HashSetTreeSetDiff {
 		tset.add("Mango");
 		tset.add("Apple");
 		tset.add("Pineapple");
+		tset.add("zebra");
 		tset.add("grapes");
 		hset.add(null);
 		System.out.println(tset.size());

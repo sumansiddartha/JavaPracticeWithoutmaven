@@ -277,7 +277,7 @@ We can set the isolation level of a transaction by @Transactional::isolation. It
     }<br>
 }<br>
 
-####READ_UNCOMMITTED Isolation
+#### READ_UNCOMMITTED Isolation
 
 READ_UNCOMMITTED is the lowest isolation level and allows for the most concurrent access.
 
@@ -291,7 +291,7 @@ public void log(String message) {<br>
 
 **Postgres does not support READ_UNCOMMITTED isolation and falls back to READ_COMMITED instead. Also, Oracle does not support or allow READ_UNCOMMITTED.**
 
-####READ_COMMITTED Isolation
+#### READ_COMMITTED Isolation
 The second level of isolation, READ_COMMITTED, prevents dirty reads.
 
 The rest of the **concurrency side effects** could still happen. So **uncommitted changes in concurrent transactions have no impact on us**, but if a transaction commits its changes, our result could change by re-querying.
@@ -302,7 +302,7 @@ public void log(String message){
     // ...
 }
 
-####REPEATABLE_READ Isolation
+#### REPEATABLE_READ Isolation
 * The third level of isolation, REPEATABLE_READ, prevents dirty, and non-repeatable reads. So we are not affected by uncommitted changes in concurrent transactions.
 * Also, when we re-query for a row, we don’t get a different result. However, in the re-execution of range-queries, we may get newly added or removed rows.
 
@@ -315,7 +315,7 @@ public void log(String message){<br>
 
 **REPEATABLE_READ is the default level in Mysql. Oracle does not support REPEATABLE_READ.**
 
-####SERIALIZABLE Isolation
+#### SERIALIZABLE Isolation
 * SERIALIZABLE is the highest level of isolation. 
 * It prevents all mentioned concurrency side effects, but can lead to the lowest concurrent access rate because it executes concurrent calls sequentially.
 

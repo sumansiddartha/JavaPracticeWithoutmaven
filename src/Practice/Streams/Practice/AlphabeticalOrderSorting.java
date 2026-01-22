@@ -9,6 +9,7 @@ public class AlphabeticalOrderSorting {
 public static void main(String[] args) {
 	 List<String> strings = Arrays.asList("banana", "orange", "apple", "grape");
 	 strings.stream().map(n->new StringBuffer(n).reverse()).sorted().collect(Collectors.toList()).forEach(System.out::println);
-
+    String s="amadeds";
+    
 }
 }
